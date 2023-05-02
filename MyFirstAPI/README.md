@@ -3,10 +3,10 @@
 For this project I've simplified the API a bit(originally I had Races table). I also combined the class features into a single table column, since the amount of class features varies from class to class and it was getting difficult to manage.
 
 # Endpoints/HTTP Methods
-	## get a list of characters
-		GET https://localhost:7192/api/Characters/
-		### no request body
-		### Sample Succesful Response:
+
+## GET https://localhost:7192/api/Characters/
+		no request body
+		Sample Succesful Response:
 			{
 				"statusCode": 200,
 				"statusDescription": "OK",
@@ -36,17 +36,16 @@ For this project I've simplified the API a bit(originally I had Races table). I 
 					]
 				}
 							
-		###Sample  unsuccesful response
+		Sample  unsuccesful response
 			{
 				"statusCode": 404,
 				"statusDescription": "Not Found",
 				"characters": []
 			}
 		
-			
-	## get a specific character
-		GET https://localhost:7192/api/Characters/<character_name>
-		### Sample Succesful Response:
+
+## GET https://localhost:7192/api/Characters/<character_name>
+		Sample Succesful Response:
 			statusCode	200
 			statusDescription	"OK"
 			characters	
@@ -70,16 +69,15 @@ For this project I've simplified the API a bit(originally I had Races table). I 
 						}
 					}
 			}
-		###Sample  unsuccesful response
+		Sample  unsuccesful response
 			{
 				"statusCode": 404,
 				"statusDescription": "Not Found",
 				"characters": []
 			}
 
-
-	##PUT https://localhost:7192/api/Characters/<character_name>
-		###Sample request body
+## PUT https://localhost:7192/api/Characters/<character_name>
+		Sample request body
         {
             "characterName": "Vax",
             "strength": 17,
@@ -95,22 +93,21 @@ For this project I've simplified the API a bit(originally I had Races table). I 
 				"classFeatures": <cool_features>
 			}
 		}
-		### Sample Succesful Response:
+		Sample Succesful Response:
 			{
 				"statusCode": 200,
 				"statusDescription": "OK",
 				"characters": []
 			}
-		###Sample  unsuccesful response
+		Sample  unsuccesful response
 			{
 				"statusCode": 404,
 				"statusDescription": "Not Found",
 				"characters": []
 			}
 
-
-	##POST https://localhost:7192/api/Characters/
-		###Sample request body
+## POST https://localhost:7192/api/Characters/
+		Sample request body
         {
             "characterName": "Vax",
             "strength": 17,
@@ -126,38 +123,36 @@ For this project I've simplified the API a bit(originally I had Races table). I 
 				"classFeatures": <cool_features>
 			}
 		}
-		### Sample Succesful Response:
+		Sample Succesful Response:
 			{
 				"statusCode": 200,
 				"statusDescription": "OK",
 				"characters": []
 			}
-		###Sample  unsuccesful response
+		Sample  unsuccesful response
 			{
 				"statusCode": 407,
 				"statusDescription": "Conflict",
 				"characters": []
 			}
-	##DELETE https://localhost:7192/api/Characters/<character_name>
-		####No response body
-		### Sample Succesful Response:
+## DELETE https://localhost:7192/api/Characters/<character_name>
+		No response body
+		Sample Succesful Response:
 			{
 				"statusCode": 200,
 				"statusDescription": "OK",
 				"characters": []
 			}
-		###Sample  unsuccesful response
+		Sample  unsuccesful response
 			{
 				"statusCode": 404,
 				"statusDescription": "Not Found",
 				"characters": []
 			}
 
-
-	## get a list of classes
-		GET https://localhost:7192/api/CharacterClasses/
-		### no request body
-		### Sample Succesful Response:
+## GET https://localhost:7192/api/CharacterClasses/
+		 no request body
+		 Sample Succesful Response:
 			{
 				"statusCode": 200,
 				"statusDescription": "OK",
@@ -175,7 +170,7 @@ For this project I've simplified the API a bit(originally I had Races table). I 
 					}
 				]
 			}
-		###Sample  unsuccesful response
+		Sample  unsuccesful response
 			{
 				"statusCode": 404,
 				"statusDescription": "Not Found",
@@ -183,10 +178,9 @@ For this project I've simplified the API a bit(originally I had Races table). I 
 			}
 
 
-	## get a specific class
-		GET https://localhost:7192/api/CharacterClasses/<Class_name>
-		### no request body
-		### Sample Succesful Response:
+## GET https://localhost:7192/api/CharacterClasses/<Class_name>
+		 no request body
+		 Sample Succesful Response:
 			{
 				"statusCode": 200,
 				"statusDescription": "OK",
@@ -199,28 +193,27 @@ For this project I've simplified the API a bit(originally I had Races table). I 
 
 				]
 			}
-		###Sample  unsuccesful response
+		Sample  unsuccesful response
 			{
 				"statusCode": 404,
 				"statusDescription": "Not Found",
 				"characters": []
 			}
 
-
-	##PUT https://localhost:7192/api/CharacterClasses/<Class_name>
-		###Sample body
+## PUT https://localhost:7192/api/CharacterClasses/<Class_name>
+		Sample body
 					{
 						"charaClassID": "barbarian",
 						"proficiencies": <proficiencies>
 						"classFeatures": <Features>
 					}
-		### Sample Succesful Response:
+		 Sample Succesful Response:
 			{
 				"statusCode": 200,
 				"statusDescription": "OK",
 				"characters": []
 			}
-		###Sample  unsuccesful response
+		Sample  unsuccesful response
 			{
 				"statusCode": 404,
 				"statusDescription": "Not Found",
@@ -228,20 +221,20 @@ For this project I've simplified the API a bit(originally I had Races table). I 
 			}
 
 
-	##POST https://localhost:7192/api/CharacterClasses/
-		###Sample body
+## POST https://localhost:7192/api/CharacterClasses/
+		Sample body
 					{
 						"charaClassID": "barbarian",
 						"proficiencies": <proficiencies>
 						"classFeatures": <Features>
 					}
-		### Sample Succesful Response:
+		 Sample Succesful Response:
 			{
 				"statusCode": 200,
 				"statusDescription": "OK",
 				"characters": []
 			}
-		###Sample  unsuccesful response
+		Sample  unsuccesful response
 			{
 				"statusCode": 404,
 				"statusDescription": "Not Found",
@@ -249,14 +242,14 @@ For this project I've simplified the API a bit(originally I had Races table). I 
 			}
 
 
-	##DELETE https://localhost:7192/api/CharacterClasses/<Class_name>
-		### Sample Succesful Response:
+## DELETE https://localhost:7192/api/CharacterClasses/<Class_name>
+		 Sample Succesful Response:
 			{
 				"statusCode": 200,
 				"statusDescription": "OK",
 				"characters": []
 			}
-		###Sample  unsuccesful response
+		Sample  unsuccesful response
 			{
 				"statusCode": 404,
 				"statusDescription": "Not Found",
@@ -264,10 +257,10 @@ For this project I've simplified the API a bit(originally I had Races table). I 
 			}
 
 
-	## get a list of subclasses
-		GET https://localhost:7192/api/CharacterSubClasses/
-		### no request body
-		### Sample Succesful Response:
+
+## GET https://localhost:7192/api/CharacterSubClasses/
+		 no request body
+		 Sample Succesful Response:
 			{
 				"statusCode": 200,
 				"statusDescription": "OK",
@@ -283,7 +276,7 @@ For this project I've simplified the API a bit(originally I had Races table). I 
 					}
 				]
 			}
-		###Sample  unsuccesful response
+		Sample  unsuccesful response
 			{
 				"statusCode": 404,
 				"statusDescription": "Not Found",
@@ -291,10 +284,9 @@ For this project I've simplified the API a bit(originally I had Races table). I 
 			}
 
 
-	## get a specific subclass
-		GET https://localhost:7192/api/CharacterSubClasses/<subClass_name>
-		### no request body
-		### Sample Succesful Response:
+## GET https://localhost:7192/api/CharacterSubClasses/<subClass_name>
+		 no request body
+		 Sample Succesful Response:
 			{
 				"statusCode": 200,
 				"statusDescription": "OK",
@@ -305,7 +297,7 @@ For this project I've simplified the API a bit(originally I had Races table). I 
 					}
 				]
 			}
-		###Sample  unsuccesful response
+		Sample  unsuccesful response
 			{
 				"statusCode": 404,
 				"statusDescription": "Not Found",
@@ -313,19 +305,19 @@ For this project I've simplified the API a bit(originally I had Races table). I 
 			}
 
 
-	##PUT https://localhost:7192/api/CharacterSubClasses/<subClass_name>
-		###Sample body
+## PUT https://localhost:7192/api/CharacterSubClasses/<subClass_name>
+		Sample body
 					{
 						"charaClassID": "barbarian_path_of_the_berserker",
 						"subClassFeatures": <Features>
 					}
-		### Sample Succesful Response:
+		 Sample Succesful Response:
 			{
 				"statusCode": 200,
 				"statusDescription": "OK",
 				"characters": []
 			}
-		###Sample  unsuccesful response
+		Sample  unsuccesful response
 			{
 				"statusCode": 404,
 				"statusDescription": "Not Found",
@@ -333,19 +325,19 @@ For this project I've simplified the API a bit(originally I had Races table). I 
 			}
 
 
-	##POST https://localhost:7192/api/CharacterSubClasses/
-		###Sample body
+## POST https://localhost:7192/api/CharacterSubClasses/
+		Sample body
 					{
 						"charaClassID": "barbarian_path_of_the_berserker",
 						"subClassFeatures": <Features>
 					}
-		### Sample Succesful Response:
+		 Sample Succesful Response:
 			{
 				"statusCode": 200,
 				"statusDescription": "OK",
 				"characters": []
 			}
-		###Sample  unsuccesful response
+		Sample  unsuccesful response
 			{
 				"statusCode": 404,
 				"statusDescription": "Not Found",
@@ -353,14 +345,14 @@ For this project I've simplified the API a bit(originally I had Races table). I 
 			}
 
 
-	##DELETE https://localhost:7192/api/CharacterSubClasses/<SubClassname>
-		### Sample Succesful Response:
+## DELETE https://localhost:7192/api/CharacterSubClasses/<SubClassname>
+		 Sample Succesful Response:
 			{
 				"statusCode": 200,
 				"statusDescription": "OK",
 				"characters": []
 			}
-		###Sample  unsuccesful response
+		Sample  unsuccesful response
 			{
 				"statusCode": 404,
 				"statusDescription": "Not Found",
