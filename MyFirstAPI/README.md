@@ -361,7 +361,7 @@ For this project I've simplified the API a bit(originally I had Races table). I 
 
 
 
-#Constraint
+# Constraint
 
 alter table characters add constraint check(substring(characlassid,1,4) = substring(charasubclassid,1,4))
 
