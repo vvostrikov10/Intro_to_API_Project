@@ -30,11 +30,11 @@ namespace MyFirstAPI.Controllers
           if (_context.Characters == null)
           {
                 response.statusCode = 404;
-                response.statusDescription = "Not Found";
+                response.statusDescription = "Character List Not Found";
                 return response;
             }
             response.statusCode = 200;
-            response.statusDescription = "OK";
+            response.statusDescription = "OK, fetched characters";
             response.characters = await  (_context.Characters.Include(c => c.CharaClass).Include(c => c.CharaSubClass).ToListAsync());
             return response;
         }
@@ -45,7 +45,7 @@ namespace MyFirstAPI.Controllers
         {
             var response = new CharacterResponse();
             response.statusCode = 400;
-            response.statusDescription = "Not Found";
+            response.statusDescription = "Character Not Found";
             if (_context.Characters == null)
             {
               return response;
@@ -56,7 +56,7 @@ namespace MyFirstAPI.Controllers
                 _context.Entry(character).Reference(c => c.CharaClass).Load();
                 _context.Entry(character).Reference(c => c.CharaSubClass).Load();
                 response.statusCode = 200;
-                response.statusDescription = "OK";
+                response.statusDescription = "OK, fetched character";
                 response.characters.Add(character);
                 return response;
             }
@@ -87,7 +87,7 @@ namespace MyFirstAPI.Controllers
                 if (!CharacterExists(id))
                 {
                     response.statusCode = 404;
-                    response.statusDescription = "Not Found";
+                    response.statusDescription = "Character does not exist";
                     return response;
                 }
                 else
@@ -96,7 +96,7 @@ namespace MyFirstAPI.Controllers
                 }
             }
             response.statusCode = 200;
-            response.statusDescription = "OK";
+            response.statusDescription = "OK, modified character";
 
             return response;
         }
@@ -123,7 +123,7 @@ namespace MyFirstAPI.Controllers
                 if (CharacterExists(character.CharacterName))
                 {
                     response.statusCode = 407;
-                    response.statusDescription = "Conflict";
+                    response.statusDescription = "Character already exists";
                     return response;
                 }
                 else
@@ -132,7 +132,7 @@ namespace MyFirstAPI.Controllers
                 }
             }
             response.statusCode = 200;
-            response.statusDescription = "Ok";
+            response.statusDescription = "Ok, created character";
             return response;
         }
 
@@ -144,21 +144,21 @@ namespace MyFirstAPI.Controllers
             if (_context.Characters == null)
             {
                 response.statusCode = 404;
-                response.statusDescription = "Not Found";
+                response.statusDescription = " Database Not Found";
                 return response;
             }
             var character = await _context.Characters.FindAsync(id);
             if (character == null)
             {
                 response.statusCode = 404;
-                response.statusDescription = "Not Found";
+                response.statusDescription = "Character Not Found";
                 return response;
             }
 
             _context.Characters.Remove(character);
             await _context.SaveChangesAsync();
             response.statusCode = 200;
-            response.statusDescription = "Ok";
+            response.statusDescription = "Ok, character deleted";
             return response;
         }
 

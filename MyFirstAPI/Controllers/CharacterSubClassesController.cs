@@ -28,11 +28,11 @@ namespace MyFirstAPI.Controllers
           if (_context.CharacterSubClasses == null)
           {
                 response.statusCode = 404;
-                response.statusDescription = "Not Found";
+                response.statusDescription = "Subclass database Not Found";
                 return response;
             }
             response.statusCode = 200;
-            response.statusDescription = "OK";
+            response.statusDescription = "OK, fetched subclasses";
             response.subClasses = await _context.CharacterSubClasses.ToListAsync();
             return response;
         }
@@ -45,7 +45,7 @@ namespace MyFirstAPI.Controllers
             if (_context.CharacterSubClasses == null)
             {
                 response.statusCode = 404;
-                response.statusDescription = "Not Found";
+                response.statusDescription = "Subclass Table Not Found";
                 return response;
             }
             var characterSubClass = await _context.CharacterSubClasses.FindAsync(id);
@@ -53,11 +53,11 @@ namespace MyFirstAPI.Controllers
             if (characterSubClass == null)
             {
                 response.statusCode = 404;
-                response.statusDescription = "Not Found";
+                response.statusDescription = "Subclass Not Found";
                 return response;
             }
             response.statusCode = 200;
-            response.statusDescription = "OK";
+            response.statusDescription = "OK, fetched subclass";
             response.subClasses.Add(characterSubClass);
             return response;
         }
@@ -86,7 +86,7 @@ namespace MyFirstAPI.Controllers
                 if (!CharacterSubClassExists(id))
                 {
                     response.statusCode = 404;
-                    response.statusDescription = "Not Found";
+                    response.statusDescription = "Subclass Not Found";
                     return response;
                 }
                 else
@@ -95,7 +95,7 @@ namespace MyFirstAPI.Controllers
                 }
             }
             response.statusCode = 200;
-            response.statusDescription = "OK";
+            response.statusDescription = "OK, fetched subclass";
             return response;
         }
 
@@ -121,7 +121,7 @@ namespace MyFirstAPI.Controllers
                 if (CharacterSubClassExists(characterSubClass.CharaSubClassID))
                 {
                     response.statusCode = 407;
-                    response.statusDescription = "Conflict";
+                    response.statusDescription = "Conflict, Subclass already exists";
                     return response;
                 }
                 else
@@ -130,7 +130,7 @@ namespace MyFirstAPI.Controllers
                 }
             }
             response.statusCode = 200;
-            response.statusDescription = "Ok";
+            response.statusDescription = "Ok, created subclass";
             return response;
         }
 
@@ -142,21 +142,21 @@ namespace MyFirstAPI.Controllers
             if (_context.CharacterSubClasses == null)
             {
                 response.statusCode = 404;
-                response.statusDescription = "Not Found";
+                response.statusDescription = "Subclass table Not Found";
                 return response;
             }
             var characterSubClass = await _context.CharacterSubClasses.FindAsync(id);
             if (characterSubClass == null)
             {
                 response.statusCode = 404;
-                response.statusDescription = "Not Found";
+                response.statusDescription = "Subclass Not Found";
                 return response;
             }
 
             _context.CharacterSubClasses.Remove(characterSubClass);
             await _context.SaveChangesAsync();
             response.statusCode = 200;
-            response.statusDescription = "Ok";
+            response.statusDescription = "Ok, deleted Subclass";
             return response;
         }
 

@@ -28,11 +28,11 @@ namespace MyFirstAPI.Controllers
             if (_context.CharacterClasses == null)
             {
                 response.statusCode = 404;
-                response.statusDescription = "Not Found";
+                response.statusDescription = "Class table Not Found";
                 return response;
             }
             response.statusCode = 200;
-            response.statusDescription = "OK";
+            response.statusDescription = "OK, fetched classes";
             response.classes = await _context.CharacterClasses.ToListAsync();
             return response;
         }
@@ -45,7 +45,7 @@ namespace MyFirstAPI.Controllers
           if (_context.CharacterClasses == null)
           {
                 response.statusCode = 400;
-                response.statusDescription = "Not Found";
+                response.statusDescription = "Class table Not Found";
                 return response;
             }
             var characterClass = await _context.CharacterClasses.FindAsync(id);
@@ -53,11 +53,11 @@ namespace MyFirstAPI.Controllers
             if (characterClass == null)
             {
                 response.statusCode = 404;
-                response.statusDescription = "Not Found";
+                response.statusDescription = "Class Not Found";
                 return response;
             }
             response.statusCode = 200;
-            response.statusDescription = "OK";
+            response.statusDescription = "OK, fetched class";
             response.classes.Add(characterClass);
             return response;
         }
@@ -86,7 +86,7 @@ namespace MyFirstAPI.Controllers
                 if (!CharacterClassExists(id))
                 {
                     response.statusCode = 404;
-                    response.statusDescription = "Not Found";
+                    response.statusDescription = "Class Not Found";
                     return response;
                 }
                 else
@@ -95,7 +95,7 @@ namespace MyFirstAPI.Controllers
                 }
             }
             response.statusCode = 200;
-            response.statusDescription = "OK";
+            response.statusDescription = "OK, modified class";
 
             return response;
         }
@@ -122,7 +122,7 @@ namespace MyFirstAPI.Controllers
                 if (CharacterClassExists(characterClass.CharaClassID))
                 {
                     response.statusCode = 407;
-                    response.statusDescription = "Conflict";
+                    response.statusDescription = "Conflict, class already exists";
                     return response;
                 }
                 else
@@ -131,7 +131,7 @@ namespace MyFirstAPI.Controllers
                 }
             }
             response.statusCode = 200;
-            response.statusDescription = "Ok";
+            response.statusDescription = "Ok, created Class";
             return response;
         }
 
@@ -143,21 +143,21 @@ namespace MyFirstAPI.Controllers
             if (_context.CharacterClasses == null)
             {
                 response.statusCode = 404;
-                response.statusDescription = "Not Found";
+                response.statusDescription = "Database Not Found";
                 return response;
             }
             var characterClass = await _context.CharacterClasses.FindAsync(id);
             if (characterClass == null)
             {
                 response.statusCode = 404;
-                response.statusDescription = "Not Found";
+                response.statusDescription = "Class Not Found";
                 return response;
             }
 
             _context.CharacterClasses.Remove(characterClass);
             await _context.SaveChangesAsync();
             response.statusCode = 200;
-            response.statusDescription = "Ok";
+            response.statusDescription = "Ok, deleted class";
             return response;
         }
 
