@@ -1,4 +1,5 @@
-﻿Dungeons and dragons character storage is an API that allows Dungeons and Dragons players to store their characters in an organized manner. Unlike most available products thhis API supports the use of unofficial homebrew classes and subclasses. 
+﻿# D&D Character storage
+Dungeons and dragons character storage is an API that allows Dungeons and Dragons players to store their characters in an organized manner. Unlike most available products thhis API supports the use of unofficial homebrew classes and subclasses. 
 
 For this project I've simplified the API a bit(originally I had Races table). I also combined the class features into a single table column, since the amount of class features varies from class to class and it was getting difficult to manage.
 
